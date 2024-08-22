@@ -30,9 +30,7 @@ String decideResultado(OPCAO opcaoUsuario, OPCAO opcaoComputador) {
   return "Computador venceu";
 }
 
-List<int> contaPlacar( String vencedor) {
-  int pontoJogador = 0;
-  int pontoComputador = 0;
+List<int> contaPlacar( vencedor, pontoJogador, pontoComputador) {
   if(vencedor == "Você venceu"){
     pontoJogador = pontoJogador + 1;
   } 
@@ -51,6 +49,8 @@ String decideVencedor(placarJogador, placarComputador){
 String penalti(opcaoUsuario, opcaoComputador, vencedor, placarJogador, placarComputador){
   exibe("\n\nEita! Parece que o jogo está empatado, decida nos penaltis até desempate!!\n");
   String vencedorFinal = "";
+  int placarJogador = 0;
+  int placarComputador = 0;
   do{
     do{
       exibe('1-Pedra\n2-Papel\n3-Tesoura\n\n4-Sair\n');
@@ -62,8 +62,8 @@ String penalti(opcaoUsuario, opcaoComputador, vencedor, placarJogador, placarCom
       OPCAO opComputador = mapeiaOpcao(opcaoComputador);
       exibe('Você ${opUsuario.name} vs ${opComputador.name} Computador');
       String vencedor = decideResultado(opUsuario, opComputador);
-      int placarJogador = contaPlacar(vencedor)[0];
-      int placarComputador = contaPlacar(vencedor)[1];
+      placarJogador = contaPlacar(vencedor, placarJogador, placarComputador)[0];
+      placarComputador = contaPlacar(vencedor, placarJogador, placarComputador)[1];
       vencedorFinal = decideVencedor(placarJogador, placarComputador);
     }
   }while(placarComputador == placarJogador);
@@ -83,6 +83,8 @@ String penalti(opcaoUsuario, opcaoComputador, vencedor, placarJogador, placarCom
 void jogo(){
 
   int opcaoUsuario, opcaoComputador, quantidadePartida;
+  int placarJogador = 0;
+  int placarComputador = 0;
 
   //loop que continua enquanto o usuário deseja continuar
   exibe('Olá, escolha quantas partidas deseja jogar: ');
@@ -110,8 +112,8 @@ void jogo(){
     //diminui quantdade de partidas restantes
       quantidadePartida = quantidadePartida - 1;
     //mostrar o resultado, claro
-      int placarJogador = contaPlacar(vencedor)[0];
-      int placarComputador = contaPlacar(vencedor)[1];
+      placarJogador = contaPlacar(vencedor, placarJogador, placarComputador)[0];
+      placarComputador = contaPlacar(vencedor, placarJogador, placarComputador)[1];
       exibe(vencedor);
     // contar pontos e exibir placar
     // encontra vencedor final
@@ -120,7 +122,7 @@ void jogo(){
           penalti(opcaoUsuario, opcaoComputador, "x", 0, 0);
         }
         String vencedorFinal = decideVencedor(placarJogador, placarComputador); 
-        exibe('\nPLACAR:\nVocê: $placarJogador\nComputador: $placarComputador\nOganhador é $vencedorFinal');
+        exibe('\nPLACAR:\nVocê: $placarJogador\nComputador: $placarComputador\nO ganhador é $vencedorFinal');
       }
 
       exibe('~~~~~~~~~~~~~~~~~~~~~~~~~~');
