@@ -1,4 +1,6 @@
 import 'dart:io';
+//espécie de classe - novo tipo de dado - cira variáveis de refrência - conjuntos enumerados
+enum DiaSemana{SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO, DOMINGO}
 
 void main (){
 
@@ -64,11 +66,4 @@ void main (){
     if (idadeOp != null){
       int age = int.parse(idadeOp);
     }
-  
-
-//
-
 }
-
-//espécie de classe - novo tipo de dado - cira variáveis de refrência - conjuntos enumerados
-enum DiaSemana{SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA, SABADO, DOMINGO}
