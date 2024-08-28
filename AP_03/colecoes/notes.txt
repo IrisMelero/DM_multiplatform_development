@@ -1,0 +1,5 @@
+Listas:
+   - manipuladas por [ ]
+   - a construção do objeto é do tipo List<String>
+   - RangeError = acesso á posição inválida, exceção em tempo de execução
+   - 
