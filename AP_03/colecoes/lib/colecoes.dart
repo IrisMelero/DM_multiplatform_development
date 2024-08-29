@@ -59,3 +59,33 @@ void exercicioMegaSena() {
   if( novaAposta == 1){ exercicioMegaSena(); }
   else{ exit(novaAposta); }
 }
+
+void exercicioPaises(){
+  var portugues = {'Brasil', 'Portugal'};
+  var europa = {'Alemanha', 'Portugal', 'Espanha'};
+  print(portugues.union(europa)); // todos portugues e europa
+  print(portugues.intersection(europa)); // falam portugues e são europeus
+  print(portugues.difference(europa)); // falam portugues e não sao europeus
+  print(europa.difference(portugues)); // sao europeus não falam portugues
+}
+
+void listaContatos(){
+  var contatos = < Map<String, dynamic> > [];
+
+  void novoContato(){};
+  void aContato(){};
+  void atualizarContato(){};
+  void apagarContato(){};
+
+  print("****************Agende de contatos******************");
+  print("1- Novo Contato\n2- \n3- Atualizar contato \n4- Apagar contato\n\n5- Sair");
+  int operacao = int.parse(stdin.readLineSync()!);
+  switch (operacao) {
+    case == 1: novoContato();
+    case == 2: aContato();
+    case == 3: atualizarContato();
+    case == 4: apagarContato();
+    default: listaContatos();
+  }
+
+}
