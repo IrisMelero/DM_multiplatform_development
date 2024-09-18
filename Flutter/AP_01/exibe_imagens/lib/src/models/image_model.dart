@@ -7,4 +7,8 @@ class ImageModel{
     url = mapa['photos'][0]['src']['small'];
     alt = mapa['photos'][0]['alt'];
   }
+
+  String toString(){
+    return 'url: $url, alt: $alt';
+  }
 }
